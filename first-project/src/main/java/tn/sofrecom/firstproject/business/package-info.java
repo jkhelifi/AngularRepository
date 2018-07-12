@@ -1,5 +1,5 @@
 /**
- * 
+ * this package contains code of business layer
  */
 /**
  * @author j.khelifi
