@@ -2,10 +2,8 @@ package tn.sofrecom.firstproject.business.impls;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import tn.sofrecom.firstproject.business.interfaces.IPersonManagement;
 import tn.sofrecom.firstproject.dao.PersonRepository;
@@ -17,12 +15,11 @@ import tn.sofrecom.firstproject.entities.Person;
  * @author j.khelifi
  *
  */
+@Service
 public class PersonManagementImpl implements IPersonManagement {
 
 	@Autowired
 	private PersonRepository personRepository;
-	@PersistenceContext
-	EntityManager entity;
 
 	/**
 	 * {@inheritDoc}
@@ -46,18 +43,17 @@ public class PersonManagementImpl implements IPersonManagement {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Person fetchPersonById(Integer id) {
-
-		return personRepository.findOne(id);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public List<Person> fetchAllPersons() {
 
 		return personRepository.findAll();
 	}
+
+	@Override
+	public Person getPersonByPwdAndEmail(String pwd, String email) {
+		
+		return personRepository.getPersonByPwdAndEmail(pwd, email);
+	}
+
+	
 
 }

@@ -30,19 +30,21 @@ public interface IPersonManagement {
 	Boolean updatePerson(Person person);
 
 	/***
-	 * fetch person by id
-	 * 
-	 * @param id
-	 *            id of Person
-	 * @return person
-	 */
-	Person fetchPersonById(Integer id);
-
-	/***
 	 * fetch all persons
 	 * 
 	 * @return List of persons
 	 */
 	List<Person> fetchAllPersons();
+
+	/***
+	 * get person by pwd && email
+	 * 
+	 * @param pwd
+	 *            password of user
+	 * @param email
+	 *            email of user
+	 * @return person
+	 */
+	Person getPersonByPwdAndEmail(String pwd, String email);
 
 }
